@@ -1,0 +1,208 @@
+
+@import '../variable/variable.less';
+
+input[type=checkbox].checkbox_default {
+    -webkit-appearance: none;
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border: 1px solid @border_gray;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    margin-right: 8px;
+    transition:.2s all;
+
+    &:hover {
+        background-color: @background_color_lightGray;
+    }
+}
+
+input[type=checkbox].checkbox_default:checked {
+    background: @background_fresh_green;
+    border: 1px solid transparent;
+    -webkit-animation: reveal .2s cubic-bezier(.4,0,.5,1);
+    animation: reveal .2s cubic-bezier(.4,0,.5,1)
+}
+
+input[type=checkbox].checkbox_default:checked:before{
+
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 22%;
+    margin-left: auto;
+    margin-right: auto;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    -webkit-animation: checkboxchecklarge 125ms 50ms cubic-bezier(.1,0,.1,1) forwards;
+    animation: checkboxchecklarge 125ms 50ms cubic-bezier(.1,0,.1,1) forwards;
+
+}
+
+
+
+// simple to use:
+// <input id="mycheckbox" type="checkbox" class="checkbox" data-shape="circled" v-bind:class="{finished:item.isFinished}" @click="toggleFinish(item)">
+// <label aria-label="" role="checkbox" for="mycheckbox" class="checkbox">
+//     <span ></span>
+// </label>
+
+input[type=checkbox].checkbox {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+input[type=checkbox].checkbox + label {
+    position: relative;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: inherit;
+    -webkit-transition: all 250ms cubic-bezier(.4,0,.23,1);
+    transition: all 250ms cubic-bezier(.4,0,.23,1);
+    margin-bottom: .15rem
+}
+
+input[type=checkbox].checkbox + label > span {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-right: .5em;
+    width: 16px;
+    height: 16px;
+    background: 0 0;
+    border: .1rem solid @border_gray;
+    border-radius: 1px;
+    cursor: pointer;
+    -webkit-transition: all 250ms cubic-bezier(.4,0,.23,1);
+    transition: all 250ms cubic-bezier(.4,0,.23,1);
+    position: relative
+}
+
+input[type=checkbox].checkbox:focus + label > span {
+    outline: 0;
+    border-color: @border_gray;
+}
+
+input[type=checkbox].checkbox:checked + label > span {
+    background: @background_fresh_green;
+    border: 1px solid transparent;
+    -webkit-animation: reveal .2s cubic-bezier(.4,0,.5,1);
+    animation: reveal .2s cubic-bezier(.4,0,.5,1)
+}
+
+input[type=checkbox].checkbox:checked + label > span:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 22%;
+    margin-left: auto;
+    margin-right: auto;
+    border-right: 1px solid @border_darkGray;
+    border-bottom: 1px solid @border_darkGray;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    -webkit-animation: checkboxchecklarge 125ms 50ms cubic-bezier(.1,0,.1,1) forwards;
+    animation: checkboxchecklarge 125ms 50ms cubic-bezier(.1,0,.1,1) forwards;
+
+}
+
+input[type=checkbox].checkbox[data-shape=circled]+label>span {
+    border-radius: 100%
+}
+
+@-webkit-keyframes checkboxchecklarge {
+    0% {
+        width: 0;
+        height: 0;
+        border-color: #fff;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg)
+    }
+
+    33% {
+        width: .4em;
+        height: .9em;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg)
+    }
+
+    100% {
+        width: .4em;
+        height: .9em;
+        border-color: #fff;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg)
+    }
+}
+
+@keyframes checkboxchecklarge {
+    0% {
+        width: 0;
+        height: 0;
+        border-color: #fff;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg)
+    }
+
+    33% {
+        width: .4em;
+        height: .9em;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg)
+    }
+
+    100% {
+        width: .4em;
+        height: .9em;
+        border-color: #fff;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg)
+    }
+}
+
+
+@-webkit-keyframes reveal {
+    0%,100% {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+
+    33% {
+        -webkit-transform: scale(.5);
+        transform: scale(.5)
+    }
+}
+
+@keyframes reveal {
+    0%,100% {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+
+    33% {
+        -webkit-transform: scale(.5);
+        transform: scale(.5)
+    }
+}
