@@ -1,11 +1,10 @@
 <template>
   <main-layout>
-    <p>接下来七天</p>
+    <p>Page not found</p>
   </main-layout>
 </template>
 
 <script>
-
   import MainLayout from '../layouts/Main.vue'
 
   export default {

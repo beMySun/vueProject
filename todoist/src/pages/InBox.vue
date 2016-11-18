@@ -1,1 +1,16 @@
-InBox.vue
+<template>
+  <main-layout>
+    <p>收件箱</p>
+  </main-layout>
+</template>
+
+<script>
+
+  import MainLayout from '../layouts/Main.vue'
+
+  export default {
+    components: {
+      MainLayout
+    }
+  }
+</script>
