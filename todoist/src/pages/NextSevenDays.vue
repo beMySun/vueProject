@@ -1,0 +1,1 @@
+nextSeven.vue
