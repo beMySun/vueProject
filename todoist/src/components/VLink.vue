@@ -2,14 +2,13 @@
   <a
     v-bind:href="href"
     v-bind:class="{ active: isActive }"
-    v-on:click="go"
-  >
+    v-on:click="go">
     <slot></slot>
   </a>
 </template>
 
 <script>
-  import routes from '../routes'
+  // import routes from '../routes'
 
   export default {
     props: {
@@ -21,13 +20,13 @@
         return this.href === this.$root.currentRoute
       }
     },
-    methods: {  
+    methods: {
       go (event) {
         event.preventDefault()
         this.$root.currentRoute = this.href
         window.history.pushState(
           null,
-          routes[this.href],
+          // routes[this.href],
           this.href
         )
       }

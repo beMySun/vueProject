@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import App from './App'
+import router from './router'
+
+router.start(App, 'body')
 
 /* eslint-disable no-new */
 new Vue({
@@ -9,7 +12,7 @@ new Vue({
 
 
 // import Vue from 'vue'
-// import routes from './routes' 
+// import routes from './routes'
 
 // const app = new Vue({
 //   el: '#app',
@@ -32,4 +35,3 @@ new Vue({
 // window.addEventListener('popstate', () => {
 //   app.currentRoute = window.location.pathname
 // })
-
