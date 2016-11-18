@@ -21,7 +21,7 @@
         return this.href === this.$root.currentRoute
       }
     },
-    methods: {
+    methods: {  
       go (event) {
         event.preventDefault()
         this.$root.currentRoute = this.href

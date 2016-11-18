@@ -3,3 +3,4 @@ export default {
   '/nextDay': 'NextDay',
   '/nextSevenDays': 'NextSevenDays'
 }
+ 

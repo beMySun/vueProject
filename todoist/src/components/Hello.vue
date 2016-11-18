@@ -20,7 +20,7 @@ export default {
       console.log(this.msge);
     }
   }
-}
+} 
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

@@ -15,7 +15,7 @@
 
 <script>
 
-  import VLink from '../components/VLink.vue'
+  import VLink from '../components/VLink.vue' 
 
   export default {
     components: {
