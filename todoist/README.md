@@ -1,4 +1,4 @@
-> A Vue.js project todoist 
+>- A Vue.js project todoist
  
 ## Build Setup
 
@@ -11,6 +11,4 @@ npm run dev
 # build for production with minification
 npm run build
 
-
-# Hello binin , this is KK
  
