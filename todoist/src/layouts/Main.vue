@@ -1,14 +1,6 @@
 <template>
   <div class="container">
-  	<!-- 左侧的导航区域 -->
-    <ul>
-      <li>
-        <v-link href="/inBox">收件箱</v-link>
-        <v-link href="/nextDay">明天</v-link>
- 		<v-link href="/nextSevenDays">接下里七天</v-link>
-      </li>
-    </ul>
-
+    <!-- 除非子组件模板包含至少一个 <slot> 插口，否则父组件的内容将会被丢弃。当子组件模板只有一个没有属性的 slot 时，父组件整个内容片段将插入到 slot 所在的 DOM 位置，并替换掉 slot 标签本身。 -->
     <slot></slot>
   </div>
 </template>

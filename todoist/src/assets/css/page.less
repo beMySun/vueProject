@@ -99,11 +99,20 @@
 	    padding: 0 5px;
 	    font-size: 13px;
 		border-radius: 3px;
+
 		&:hover {
 			background: #fff;
 			transition:.1s all;
 		}
+		
+		a{
+			color: @font_color_gray;
 
+			&:hover {
+				text-decoration: none;
+				color:@font_color_gray;
+			}
+		}
 		
 	    i {
 	    	font-size: 22px;
@@ -190,7 +199,9 @@
 		padding: 25px 20px;
 	    width: 620px;
 	    background: #fff;
-
+		.container {
+			 background: #fff;
+		}
 		.mail_box {
 			margin-bottom: 15px;
 

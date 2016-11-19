@@ -29,7 +29,7 @@
                 <a v-link="{ path: '/inbox' }"><i class="iconfont icon-zititubiaoshoujianxiang"></i>收件箱</a>
               </li>
               <li class="nav-list-item">
-                <a v-link="{ path: '/nextday' }"><i class="iconfont icon-iconfontcanlender"></i>今天</a>
+                <a v-link="{ path: '/nextday' }"><i class="iconfont icon-iconfontcanlender"></i>明天</a>
               </li>
               <li class="nav-list-item">
                 <a v-link="{ path: '/nextweek' }"><i class="iconfont icon-rili"></i>接下来7天</a>
@@ -68,95 +68,15 @@
         </div>
         <div class="main_content">
           <router-view></router-view>
-          <!-- 收件箱 -->
-          <div class="mail_box">
-            <h1 v-text="title" class="title"></h1>
-            <div class="input-bar">
-                <input class="task-input" type="text" v-model="newItem" v-on:keyup.enter="addNew" placeholder="例如: 每两天学习葡萄牙语 共享">
-                <input  class="date-input" type="text" value="11月18日">
-            </div>
-
-            <button  class="add-button" type="button" @click="addNew">{{buttonName}}</button>
-            <span class="cancel-button"> 取消</span>
-            <ul class="task-list">
-
-                <li v-for="item in items" >
-                  <span class="wrapper">
-                    <input id="mycheckbox" type="checkbox" class="checkbox_default" data-shape="circled" v-bind:class="{finished:item.isFinished}" @click="toggleFinish(item)">
-                    <span class="tip task-text" v-bind:class="{finished:item.isFinished}">{{item.label}}</span>
-                  </span>
-                  <span  class="task-text delete-task" @click="deleteItem(item)">删除任务</span>
-                </li>
-            </ul>
-          </div>
-
-          <div class="add-project">
-              <i class="iconfont icon-add"></i>
-              <span class="add-text"> 添加任务</span>
-          </div>
-        </div>
-
     </section>
   </div>
 </template>
 
 <script>
-
-import Store from './assets/js/store'
-import Hello from './components/Hello'
-
-export default {
-  data(){
-    return {
-      title: "收件箱",
-      buttonName: "添加任务",
-      items: Store.fetch(),
-      newItem: ''
+    export default {
+        replace: false
     }
-  },
-  methods: {
-
-    toggleFinish(item){
-      item.isFinished = !item.isFinished;
-
-    },
-
-    addNew(){
-
-      if (this.newItem.trim().length == 0) {
-        alert('空的');
-      } else {
-        this.items.push({
-          label: this.newItem,
-          isFinished: false
-        });
-      }
-      this.newItem = '';
-
-    },
-    deleteItem(item){
-      console.log('delete');
-      var index = this.items.indexOf(item)
-      if (index !== -1) {
-        this.items.splice(index, 1)
-      }
-    }
-  },
-  components: {
-    Hello
-  },
-
-  watch: {
-    items: {
-      handler: function(items){
-        Store.save(items);
-      },
-      deep: true
-    }
-  }
-}
 </script>
-
 <style lang="less">
-@import 'assets/css/page.less';
+    @import 'assets/css/page.less';
 </style>
