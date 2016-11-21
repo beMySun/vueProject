@@ -4,14 +4,13 @@
         <h1 v-text="title" class="title"></h1>
         <div class="input-bar">
             <input class="task-input" type="text" v-model="newItem" v-on:keyup.enter="addNew" placeholder="例如: 每两天学习葡萄牙语 共享">
-            <input  class="date-input" type="text" value="11月18日">
+            <datepicker :value.sync="date" ></datepicker>
         </div>
-
         <button  class="add-button" type="button" @click="addNew">{{buttonName}}</button>
         <span class="cancel-button"> 取消</span>
         <ul class="task-list">
 
-            <li v-for="item in items" >
+            <li v-for="item in items" :class="{cur:item.iscur}" @click="setCur($index)">
               <span class="wrapper">
                 <input id="mycheckbox" type="checkbox" class="checkbox_default" data-shape="circled" v-bind:class="{finished:item.isFinished}" @click="toggleFinish(item)">
                 <span class="tip task-text" v-bind:class="{finished:item.isFinished}">{{item.label}}</span>
@@ -29,10 +28,10 @@
   </main-layout>
 </template>
 
-
  <script>
 
 import Store from '../assets/js/store'
+import datepicker from '../components/datepicker.vue'
 import MainLayout from '../layouts/Main.vue'
 
 export default {
@@ -41,11 +40,13 @@ export default {
       title: "收件箱",
       buttonName: "添加任务",
       items: Store.fetch(),
-      newItem: ''
+      newItem: '',
+      date: '2016-10-16'
     }
   },
   components: {
-      MainLayout
+      MainLayout,
+      datepicker
   },
   methods: {
 
@@ -61,7 +62,8 @@ export default {
       } else {
         this.items.push({
           label: this.newItem,
-          isFinished: false
+          isFinished: false,
+          iscur:false
         });
       }
       this.newItem = '';
@@ -73,6 +75,12 @@ export default {
       if (index !== -1) {
         this.items.splice(index, 1)
       }
+    },
+    setCur(index) {
+      console.log('a');
+      this.data.map(function(v,i){
+        i == index ? v.iscur = true : v.iscur = false ;
+      });
     }
   },
   watch: {

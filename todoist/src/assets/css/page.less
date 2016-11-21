@@ -107,10 +107,17 @@
 		
 		a{
 			color: @font_color_gray;
-
+			width: 100%;
+			display: flex;
+			align-items: center;
+			
 			&:hover {
 				text-decoration: none;
 				color:@font_color_gray;
+			}
+
+			&.v-link-active {
+				background: #fff;
 			}
 		}
 		
