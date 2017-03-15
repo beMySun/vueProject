@@ -1,0 +1,23 @@
+@span-num: 12;
+
+.span-common() {
+    .span(@index) when(@index =< @span-num) {
+        .span-@{index} {
+            float: left;
+            position: relative;
+            min-height: 1px;  
+            width: percentage(@index/@span-num);          
+        }
+
+        .gap.span-@{index} {
+            padding-left: @gap;
+            padding-right: @gap;
+        }
+
+        .span(@index + 1);
+    }
+
+    .span(1);
+}
+
+.span-common();
